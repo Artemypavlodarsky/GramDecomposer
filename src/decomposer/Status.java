@@ -38,19 +38,16 @@ public class Status implements Comparable<Status> {
 
 	@Override
 	public int compareTo(Status o) {
-		// TODO Auto-generated method stub
 		return Double.compare(this.getPercentConsist(), o.percentConsist);
 	}
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
 		return count+", "+percentConsist;
 	}
 	
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
 		return this.hashCode();
 	}
 	

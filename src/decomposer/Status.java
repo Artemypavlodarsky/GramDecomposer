@@ -16,8 +16,6 @@ public class Status implements Comparable<Status> {
 		setPercentConsist(percentConsist_Arg);
 	}
 	
-	
-	
 	public void addCount(Long count_Arg) {
 		setCount(getCount()+count_Arg); // add count value
 	}

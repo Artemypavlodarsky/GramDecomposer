@@ -1,6 +1,5 @@
 package decomposer;
 
-
 public class Gramer {
 	
 	public Gramer() {

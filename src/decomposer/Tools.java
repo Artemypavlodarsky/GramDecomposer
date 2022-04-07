@@ -2,7 +2,6 @@ package decomposer;
 
 import java.util.Arrays;
 
-
 public class Tools {
 	
 	public static CharSequence regEx_Stces = ".,?!:;";

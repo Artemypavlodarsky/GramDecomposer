@@ -17,11 +17,11 @@ public class Tools {
 	
 	public void decomposeLine(String str_Arg, boolean isDecomposeWords) {
 		Gramer grm = new Gramer();
-		String strClearedFromGarbage = deleteGarbageChars(str_Arg, "["+negatedChars+"]+", true);
+		String strClearedFromGarbage = clearGarbageChars(str_Arg, "["+negatedChars+"]+", true);
 		strClearedFromGarbage = clearRedudantChars(strClearedFromGarbage, 2);	// Clear on redundant character
-		String[] arrOfObj_Snts = getSplitArrStrOfSntsFromLine(strClearedFromGarbage); // clear incoming String from negated characters and divide result into array of sentences
+		String[] arrOfObj_Snts = getArrStrOfSplitSntsFromLine(strClearedFromGarbage); // clear incoming String from negated characters and divide result into array of sentences
 		for (int i = 0; i < arrOfObj_Snts.length; i++) {	
-			Object[] arrOfObj_Words = getArrObjOfWordsFromStr(arrOfObj_Snts[i]);	// divide each sentences on word
+			Object[] arrOfObj_Words = getArrObjOfSplitWordsFromStr(arrOfObj_Snts[i]);	// divide each sentences on word
 			String[] arrOfObj_GramsWords = getStrArrFromObjArr(grm.getGramsArrFromObjArr(arrOfObj_Words), ",");
 			gramDict.writeInDictionary(arrOfObj_GramsWords);	//we get ngram's from array words of current sentence and write ngram in map
 			gramDict.addWholeWordsCount(arrOfObj_Words.length);	//ADD count of the Whole Words
@@ -54,7 +54,7 @@ public class Tools {
 		return ret.toString();
 	}
 	
-	public static String deleteGarbageChars(String str_Arg, String remSymbols, boolean remDivis) {
+	public static String clearGarbageChars(String str_Arg, String remSymbols, boolean remDivis) {
 		if ("".equals(str_Arg) || (str_Arg.isBlank())){
 			return "";
 		} else {StringBuilder sb = new StringBuilder(str_Arg);
@@ -81,11 +81,11 @@ public class Tools {
 				}
 	}
 	
-	public String[] getSplitArrStrOfSntsFromLine(String str_Arg) {	//str_Arg - must be cleared on customDeleteChars
+	public String[] getArrStrOfSplitSntsFromLine(String str_Arg) {	//str_Arg - must be cleared on customDeleteChars
 		return str_Arg.strip().split("["+regEx_Stces+"]+");
 	}
 	
-	public Object[] getArrObjOfWordsFromStr(String str_Arg) {	//str_Arg - must be cleared on customDeleteChars
+	public Object[] getArrObjOfSplitWordsFromStr(String str_Arg) {	//str_Arg - must be cleared on customDeleteChars
 		String[] strArrTemp = str_Arg.strip().split("["+regEx_Words+"]+");
 		Object[] ret = new Object[strArrTemp.length];
 		for (int i = 0; i < strArrTemp.length; i++) 

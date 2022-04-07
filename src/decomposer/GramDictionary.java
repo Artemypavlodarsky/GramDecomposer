@@ -30,14 +30,12 @@ public class GramDictionary {
 	}
 	
 	public void calcPrcntConsistWordOfDict() {
-		//TODO
 		for(Object key : nGrams.keySet()) {
 			Status status = nGrams.get(key);
 			double gramCount = status.getCount();
 			double prcnt = (gramCount*100)/(commonWordsCount);
 			status.setPercentConsist( prcnt );
 			nGrams.put(String.valueOf(key), status);
-//		    System.out.println("calcPrcntConsistWordOfDict: "+prcnt+" % "+nGrams.get(key).getPercentConsist());
 		}
 	}
 	

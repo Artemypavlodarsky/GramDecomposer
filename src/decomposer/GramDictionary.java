@@ -45,12 +45,11 @@ public class GramDictionary {
 				if (!nGrams.containsKey(str_Arg[i])) {
 					Status status = new Status(1L, 0);
 					nGrams.put(str_Arg[i], status);
-				}
-				else {
-					Status status = nGrams.get(str_Arg[i]);
-					status.addCount(1L);
-					nGrams.put(str_Arg[i], status);
-					}
+				}else{
+						Status status = nGrams.get(str_Arg[i]);
+						status.addCount(1L);
+						nGrams.put(str_Arg[i], status);
+					 }
 			commonWordsCount += 1;	
 			}
 		}
@@ -60,8 +59,7 @@ public class GramDictionary {
 		nGrams.entrySet().stream().sorted(
 				new Comparator<Map.Entry<String, Status>>() {
 		            public int compare(Map.Entry<String, Status> o1, Map.Entry<String, Status> o2) {
-		                return (o1.getValue()).compareTo(o2.getValue());
-		                }
+		                return (o1.getValue()).compareTo(o2.getValue());}
 		        }).forEach(System.out::println);
 		System.out.println("printNgramMap():the Whole Words count = "+wholeWordsCount);
 		System.out.println("printNgramMap():Common Words Count = "+commonWordsCount);

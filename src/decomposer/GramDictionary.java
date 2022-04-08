@@ -33,7 +33,7 @@ public class GramDictionary {
 		for(Object key : nGrams.keySet()) {
 			Status status = nGrams.get(key);
 			double gramCount = status.getCount();
-			double prcnt = (gramCount*100)/(commonWordsCount);
+			double prcnt = (gramCount*100)/commonWordsCount;
 			status.setPercentConsist( prcnt );
 			nGrams.put(String.valueOf(key), status);
 		}
